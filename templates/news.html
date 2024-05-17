@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News - Basketball League</title>
+    <link rel="stylesheet" href="{% static "css/news.css" %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="{% url "core:home" %}">
+                <img src="{% static 'img/mainPage/logo/logo2.png' %}" class="logo_img">
+                <div class="logo">asketball League</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="{% url "core:teams" %}">Teams</a></li>
+                    <li><a href="{% url "core:schedule" %}">Schedule</a></li>
+                    <li><a href="{% url "core:standings" %}">Standings</a></li>
+                    <li><a href="{% url "core:news" %}">News</a></li>
+                    <li><a href="{% url "core:contacts" %}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="news" id="news">
+        <div class="container">
+            <h1>Latest News</h1>
+            <div class="news-items">
+                {% for news in latest_news %}
+                <article>
+                    {% if news.image %}
+                    <img src="{{ news.image.url }}" alt="{{ news.title }}">
+                    {% else %}
+                    <img src="{% static 'img/default.jpg' %}" alt="Default Image">
+                    {% endif %}
+                    <h2>{{ news.title }}</h2>
+                    <p>Date: {{ news.date }}</p>
+                    <p>{{ news.content }}</p>
+                    <a href="{% url 'core:article' news.pk %}">Read more</a>
+                   
+                </article>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <h2>Follow Us</h2>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

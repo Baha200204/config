@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us - Basketball League</title>
+    <link rel="stylesheet" href="{% static "css/contacts.css" %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="{% url "core:home" %}">
+                <img src="{% static "img/mainPage/logo/logo2.png" %}" class="logo_img">
+            <div class="logo">asketball League</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="{% url "core:teams" %}">Teams</a></li>
+                    <li><a href="{% url "core:schedule" %}">Schedule</a></li>
+                    <li><a href="{% url "core:standings" %}">Standings</a></li>
+                    <li><a href="{% url "core:news" %}">News</a></li>
+                    <li><a href="{% url "core:contacts" %}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="contact" id="contact">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>If you have any questions or would like more information about our league, please contact us using the information below or send us a message using the form.</p>
+            <div class="contact-info">
+                <h2>Email</h2>
+                <p><a href="mailto:contact@basketballleague.com">contact@basketballleague.com</a></p>
+                <h2>Phone</h2>
+                <p><a href="tel:+1234567890">(123) 456-7890</a></p>
+            </div>
+            <div class="contact-form">
+                <h2>Send us a message</h2>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <h2>Follow Us</h2>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

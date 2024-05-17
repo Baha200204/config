@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basketball League - Teams</title>
+    <link rel="stylesheet" href="{% static "css/teams.css" %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="{% url "core:home" %}">
+                <img src="{% static 'img/mainPage/logo/logo2.png' %}" class="logo_img">
+                <div class="logo">asketball League</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="{% url "core:teams" %}">Teams</a></li>
+                    <li><a href="{% url "core:schedule" %}">Schedule</a></li>
+                    <li><a href="{% url "core:standings" %}">Standings</a></li>
+                    <li><a href="{% url "core:news" %}">News</a></li>
+                    <li><a href="{% url "core:contacts" %}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="teams" id="teams">
+        <div class="container">
+            <h1>Teams</h1>
+            <div class="teams-grid">
+                {% for team in teams %}
+                <div class="team">
+                {% if team.image %}
+                    <img src="{{ team.image.url }}" alt="{{ team.name }} Image">
+                {% else %}
+                    <img src="{% static 'img/default.jpg' %}" alt="Default Logo">
+                {% endif %}
+                    <h2>{{ team.team_name }}</h2>
+                    <p>Home City: {{ team.city }}</p>
+                    <p>Top Player: {{ team.top_player }}</p>
+                    <a href="{% url "core:team" team.pk %}"><button>View Team</button></a>
+                    
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="contact-info" id="contact">
+                <h2>Contact Us</h2>
+                <p>Email: contact@basketballleague.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="social-media">
+                <h2>Follow Us</h2>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

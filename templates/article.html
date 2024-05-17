@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ article.title }} - Basketball League</title>
+    <link rel="stylesheet" href="{% static 'css/article.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="{% url "core:home" %}">
+                <img src="{% static "img/mainPage/logo/logo2.png" %}" class="logo_img">
+            <div class="logo">asketball League</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="{% url "core:teams" %}">Teams</a></li>
+                    <li><a href="{% url "core:schedule" %}">Schedule</a></li>
+                    <li><a href="{% url "core:standings" %}">Standings</a></li>
+                    <li><a href="{% url "core:news" %}">News</a></li>
+                    <li><a href="{% url "core:contacts" %}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="news" id="news">
+    <div class="container">
+        <h1>{{ article.title }}</h1>
+        <div class="news-items">
+            <article>
+                {% if article.image %}
+                <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                {% else %}
+                <img src="{% static 'img/default.jpg' %}" alt="Default Image">
+                {% endif %}
+                <p>Date: {{ article.date }}</p>
+                <p>{{ article.content}}</p>
+
+            </article>
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <h2>Follow Us</h2>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

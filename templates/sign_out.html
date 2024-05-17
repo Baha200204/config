@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Out</title>
+    <link rel="stylesheet" href="{% static 'css/sign_out.css' %}">
+</head>
+<body>
+    <my-header></my-header>
+    <div class="sign-out-container">
+        <h1>Sign Out</h1>
+        <p>Are you sure you want to sign out?</p>
+        <form method="POST" action="{% url 'core:sign_out' %}">
+            {% csrf_token %}
+            <button type="submit">Sign Out</button>
+        </form>
+    </div>
+</body>
+</html>

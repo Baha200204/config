@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basketball League - Standings</title>
+    <link rel="stylesheet" href="{% static "css/standings.css" %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html">
+                <img src="{% static 'img/mainPage/logo/logo2.png' %}" class="logo_img">
+                <div class="logo">asketball League</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="{% url "core:teams" %}">Teams</a></li>
+                    <li><a href="{% url "core:schedule" %}">Schedule</a></li>
+                    <li><a href="{% url "core:standings" %}">Standings</a></li>
+                    <li><a href="{% url "core:news" %}">News</a></li>
+                    <li><a href="{% url "core:contacts" %}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="standings" id="standings">
+        <div class="container">
+            <h1>Standings</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Wins</th>
+                        <th>Losses</th>
+                        <th>Win Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for team in standings %}
+                    <tr>
+                        <td>{{ team.rank }}</td>
+                        <td>{{ team.team }}</td>
+                        <td>{{ team.wins }}</td>
+                        <td>{{ team.losses }}</td>
+                        <td>{{ team.win_percentage }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="contact-info" id="contact">
+                <h2>Contact Us</h2>
+                <p>Email: contact@basketballleague.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="social-media">
+                <h2>Follow Us</h2>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
