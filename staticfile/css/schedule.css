@@ -10,7 +10,40 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
+header {
+    background-color: #222;
+    padding: 15px 0;
+    color: #fff;
+}
 
+.logo_img{
+    display: inline-block;
+    height: 35px;
+}
+
+.logo {
+    display: inline-block;
+    font-size: 28px;
+    font-weight: bold;
+    width: 79%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
+}
 h1 {
     font-size: 24px;
     font-weight: bold;
@@ -69,8 +102,4 @@ footer a:hover {
     color: #f39c12;
 }
 
-my-header {
-    display: block;
-    width: 100%;
-    margin-bottom: 20px;
-}
+
